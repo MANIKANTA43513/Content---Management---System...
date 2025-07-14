@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Zap, TrendingUp, Target, Users, ArrowRight, Star } from "lucide-react";
+import { Database, Users, TrendingUp, Cog, ArrowRight, Star, Target, Zap } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Landing = () => {
   const [mainHeading, setMainHeading] = useState(
@@ -25,21 +26,34 @@ const Landing = () => {
     fetchHeading();
   }, []);
 
-  const features = [
+  const coreFeatures = [
     {
-      icon: TrendingUp,
-      title: "Revenue Optimization",
-      description: "AI-powered analytics to maximize your revenue streams and identify growth opportunities."
-    },
-    {
-      icon: Target,
-      title: "Smart Marketing",
-      description: "Targeted campaigns that convert better with machine learning insights."
+      icon: Database,
+      title: "Multi-source data",
+      description: "You use a vast range of data from forms, log, text, images, and through our AI technology we can detect, classify, and extract vital patterns from your business"
     },
     {
       icon: Users,
-      title: "Customer Intelligence",
-      description: "Deep customer behavior analysis to improve retention and satisfaction."
+      title: "Stakeholder alignment",
+      description: "Our platform enhance the collaboration across teams by providing stakeholder aligned and that flows around your organization decisions making tools effortless"
+    },
+    {
+      icon: TrendingUp,
+      title: "Continuous engagement",
+      description: "Business intelligence can help build to enhance shared network data and support teams to make value driven using your work"
+    }
+  ];
+
+  const capabilities = [
+    {
+      icon: Cog,
+      title: "Ready to Go Apps",
+      description: "We have a range of solutions that can either change your business processes or suggest recommendations around your project upbringing around solution effortless"
+    },
+    {
+      icon: Target,
+      title: "Internal capability building",
+      description: "We understand all our work within the people in management technology, and that your technical teams long experience there"
     }
   ];
 
@@ -63,149 +77,80 @@ const Landing = () => {
       {/* Navigation */}
       <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl text-primary">Company ABC</div>
+          <div className="font-bold text-xl">Company ABC</div>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-            <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
-            <Button variant="outline">Sign In</Button>
-            <Button variant="cta">Get Started</Button>
+            <a href="#" className="text-foreground hover:text-primary transition-colors">About</a>
+            <a href="#" className="text-foreground hover:text-primary transition-colors flex items-center">
+              Services <span className="ml-1">▼</span>
+            </a>
+            <a href="/cms" className="text-foreground hover:text-primary transition-colors">CMS</a>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-background to-secondary/20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent leading-tight">
-              {mainHeading}
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Hyper boost your{" "}
+              <span className="text-primary">Revenue Management, Marketing</span>{" "}
+              and Commercial Functions with Business Ready AI
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Unlock the power of artificial intelligence to drive unprecedented growth 
-              across your entire commercial ecosystem.
+            <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+              Powerful AI solutions that go beyond mere data sorting and exploration. 
+              Use our array of AI enabled solutions that understand your business and 
+              recommend the optimal way forward.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-                Start Free Trial <ArrowRight className="ml-2" />
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-                Watch Demo
-              </Button>
-            </div>
+            <Button variant="default" size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
+              Get started
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20">
+      {/* Capabilities Section */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Powerful AI-Driven Solutions
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Transform your business operations with cutting-edge artificial intelligence 
-              designed for modern enterprises.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            {capabilities.map((capability, index) => (
+              <div key={index} className="text-center">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <capability.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{capability.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {capability.description}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
+      {/* Core Features Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-primary-foreground" />
+            {coreFeatures.map((feature, index) => (
+              <div key={index} className="text-center">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </Card>
+                <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">50K+</div>
-              <div className="text-primary-glow">Active Users</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">98%</div>
-              <div className="text-primary-glow">Customer Satisfaction</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">2.5x</div>
-              <div className="text-primary-glow">Average ROI Increase</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-primary-glow">AI-Powered Support</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              See how companies are transforming their business with our AI solutions.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-8">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-lg mb-6 italic">"{testimonial.content}"</p>
-                <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className="text-muted-foreground">{testimonial.role}</div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section id="contact" className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl mb-8 text-primary-glow">
-              Join thousands of companies already using our AI-powered solutions 
-              to drive unprecedented growth.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90"
-              >
-                Get Started Free <Zap className="ml-2" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
-              >
-                Schedule Demo
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -214,7 +159,7 @@ const Landing = () => {
       <footer className="bg-secondary/20 py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="font-bold text-2xl text-primary mb-4">Company ABC</div>
+            <div className="font-bold text-2xl mb-4">Company ABC</div>
             <p className="text-muted-foreground mb-6">
               Empowering businesses with next-generation AI solutions.
             </p>

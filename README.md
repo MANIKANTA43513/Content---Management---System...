@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c
+**URL**: https://Content Management System.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c
 
 ## How can I edit this code?
 
@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use the Content Management System**
 
-Simply visit the [Project](https://lovable.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c) and start prompting.
+Simply visit the [Project](https://Content Management System.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c) and start prompting.
 
 Changes made will be committed automatically to this repo.
 
@@ -62,7 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open the [Content Management System](https://lovable.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c) and click on Share -> Publish.
+Simply open the [Content Management System](https://Content Management System.dev/projects/68439915-ec90-4b3b-b4f3-4002c19f365c) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my project?
 
@@ -70,4 +70,4 @@ Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Read more here: [Setting up a custom domain](https://docs.Content Management System.dev/tips-tricks/custom-domain#step-by-step-guide)

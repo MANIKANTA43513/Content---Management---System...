@@ -83,7 +83,7 @@ const Landing = () => {
             <a href="#" className="text-foreground hover:text-primary transition-colors flex items-center">
               Services <span className="ml-1">▼</span>
             </a>
-            <a href="/cms" className="text-foreground hover:text-primary transition-colors">CMS</a>
+            <a href="/cms" className="text-foreground hover:text-primary transition-colors">Content Management System</a>
           </div>
         </div>
       </nav>
